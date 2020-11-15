@@ -1,0 +1,98 @@
+<h1>Producto <small>nombre producto</small></h1>
+
+<div class="row text-right">
+  <div class="col">
+    <div routerLink="/productos" class="btn btn-danger">
+      <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      Regresar
+    </div>
+  </div>
+</div>
+
+<div class="row animate__animated animate__fadIn animate__faster">
+  <div class="col">
+    <form (ngSubmit)="guardar(f)" #f="ngForm">
+        
+      <div class="form-group">
+        <label for="">Firebase ID</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Firebase ID"
+          disabled="disable"
+          [(ngModel)]="producto.id"
+          name="id"
+        />
+        <small class="text-muted">Campo automático</small>
+      </div>
+      <div class="form-group">
+        <label for="">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Nombre del producto"
+          required
+          [(ngModel)]="producto.nombre"
+          name="nombre"
+        />
+      </div>
+      <div class="form-group">
+        <label for="">Aroma</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Aroma"
+   
+          [(ngModel)]="producto.aroma"
+          name="aroma"
+        />
+      </div>
+      <div class="form-group">
+        <label for="">Descripción</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Descripción"
+     
+          [(ngModel)]="producto.descrip"
+          name="descrip"
+        />
+      </div>
+      <div class="form-group">
+        <label for="">Contenido</label>
+        <select class="custom-select" id="volumen" [(ngModel)]="producto.contenido" [ngModelOptions]="{standalone: true}">
+          <option value="125">125 ml</option>
+          <option value="250 ml">250 ml</option>
+          <option value="500">500 ml</option>
+          <option value="1000">1 litro</option>
+     
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="">Disponible</label>
+        <br>
+      <button *ngIf="producto.disp"
+              (click)="producto.disp = false"  
+      class="btn btn-outline-success w-50" type="button">
+        <i class="fas fa-smile-wink"></i>
+        Disponible
+      </button>
+      <button *ngIf="!producto.disp"
+      (click)="producto.disp = true" 
+      class="btn btn-outline-danger w-50" type="button">
+        <i class="fas fa-dizzy"></i>
+        No disponible
+      </button>
+      </div>
+      <hr>
+      <div class="form-group text-center">
+<button class="btn btn-primary w-25" type="submit">
+    <i class="fas fa-save "></i>
+    Guardar
+</button>
+      </div>
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<h1>Productos</h1>
+<hr />
+<div class="row">
+  <div class="col text-right">
+    <button routerLink="/producto/nuevo" class="btn btn-primary my-3">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+      Agregar
+    </button>
+  </div>
+</div>
+
+<table *ngIf="!cargando && productos.length > 0" class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Producto</th>
+      <th scope="col">Aroma</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Contenido</th>
+      <th scope="col">Disponible</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let producto of productos; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ producto.nombre }}</td>
+      <td>{{ producto.aroma }}</td>
+      <td>{{ producto.descrip }}</td>
+      <td>{{ producto.contenido }} ml</td>
+      <td>
+        <label *ngIf="producto.disp" class="badge badge-success"
+          >Disponible</label
+        >
+        <label *ngIf="!producto.disp" class="badge badge-danger"
+          >No disponible</label
+        >
+      </td>
+      <td>
+        <button
+          class="btn btn-info mr-1"
+          [routerLink]="['/producto', producto.id]"
+        >
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+        </button>
+        <button class="btn btn-danger" (click)="borrarProducto(producto, i)">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div
+  *ngIf="!cargando && productos.length === 0"
+  class="alert alert-warning text-center mt-3 animate__animated animate__fadeIn animate__fast"
+>
+  <h4 class="alert-heading">No hay registros</h4>
+  <p>
+    <i class="fa fa-exclamation fa-2x" aria-hidden="true"></i>
+  </p>
+  <p class="mb-0">Espere por favor</p>
+</div>
+<div
+  *ngIf="cargando"
+  class="alert alert-info text-center mt-3 animate__animated animate__fadeIn animate__fast"
+>
+  <h4 class="alert-heading">Cargando</h4>
+  <p>
+    <i class="fas fa-sync fa-spin fa-2x"></i>
+  </p>
+  <p class="mb-0">Espere por favor</p>
+</div>
