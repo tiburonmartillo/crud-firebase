@@ -8,12 +8,16 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ProductoComponent } from './pages/producto/producto.component';
 import { ProductosComponent } from './pages/productos/productos.component';
+import { CatalogoComponent } from './pages/catalogo/catalogo.component';
+import { NavbarComponent } from './share/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductoComponent,
-    ProductosComponent
+    ProductosComponent,
+    CatalogoComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
