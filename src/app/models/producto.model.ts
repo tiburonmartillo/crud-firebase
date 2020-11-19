@@ -6,6 +6,7 @@ export class ProductoModel{
     descrip:string;
     contenido:number;
     disp:boolean;
+    foto:string;
 
     constructor(){
         this.disp=true;

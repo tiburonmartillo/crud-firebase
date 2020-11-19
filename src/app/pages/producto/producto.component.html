@@ -26,6 +26,17 @@
         <small class="text-muted">Campo automático</small>
       </div>
       <div class="form-group">
+        <label for="">Fotografía</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Agregar foto"
+          required
+          [(ngModel)]="producto.foto"
+          name="nombre"
+        />
+      </div>
+      <div class="form-group">
         <label for="">Nombre</label>
         <input
           type="text"
@@ -96,3 +107,6 @@
     </form>
   </div>
 </div>
+
+
+
