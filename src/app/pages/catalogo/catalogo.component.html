@@ -10,27 +10,19 @@
 </div>
 <div class="card-deck" *ngFor="let producto of productos">
   <a class="text-decoration-none" href="{{apiWhats}}Hola+Tera%0A%0AMi+nombre+es+Sergio+me+interesa+la+propiedad+{{producto.nombre}}+de+{{ producto.contenido }}%0A%0Ade+contado&app_absent=0">
-    <div class="card mb-3" style="max-width: 540px">
-      <div class="row no-gutters">
-        <div class="col-md-4 img-thumbnail">
-          <img  [src]="producto.foto" alt="" />
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">{{ producto.nombre }}</h5>
-            <p class="card-text">{{ producto.descrip }}</p>
-            <p class="card-text">
-              <small class="text-muted">{{ producto.contenido }}</small>
-            </p>
-            <div class="card-footer bg-white border-0">
-              <label *ngIf="producto.disp" class="badge badge-success"
-                >Disponible</label
-              >
-              <label *ngIf="!producto.disp" class="badge badge-danger"
-                >No disponible</label
-              >
-            </div>
-          </div>
+    <div class="card" style="width: 18rem;">
+      <img [src]="producto.foto" class="card-img-top img-fluid h-50" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ producto.nombre }}</h5>
+        <p class="card-text">{{ producto.descrip }}</p>
+        <small class="text-muted">{{ producto.contenido }}</small>
+        <div class="card-footer bg-white border-0">
+          <label *ngIf="producto.disp" class="badge badge-success"
+            >Disponible</label
+          >
+          <label *ngIf="!producto.disp" class="badge badge-danger"
+            >No disponible</label
+          >
         </div>
       </div>
     </div>
